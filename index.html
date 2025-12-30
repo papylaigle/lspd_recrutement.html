@@ -4,554 +4,270 @@
 <meta charset="UTF-8">
 <title>LSPD Academy – Questionnaire de Recrutement</title>
 
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
 <style>
-/* ---------- VARIABLES DE THÈME ---------- */
 :root {
-    --bg: #0d1b2a;
-    --bg2: #1b263b;
-    --text: #e0e6ed;
-    --accent: #1d72f3;
-    --accent-hover: #1558b0;
-    --box: #243447;
-    --border: #778da9;
+  --bg: #f4f6f9;
+  --card: #ffffff;
+  --text: #1f2937;
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
 }
 
-.light {
-    --bg: #f5f7fa;
-    --bg2: #ffffff;
-    --text: #1a1a1a;
-    --accent: #1d72f3;
-    --accent-hover: #1558b0;
-    --box: #e8ecf1;
-    --border: #cbd5e1;
+.dark {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --text: #e2e8f0;
+  --accent: #3b82f6;
+  --accent-hover: #1d4ed8;
 }
 
-/* ---------- GLOBAL ---------- */
 body {
-    margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    transition: 0.3s;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  margin: 0;
+  transition: background 0.3s, color 0.3s;
 }
 
-/* ---------- HEADER ---------- */
-.header {
-    background: linear-gradient(135deg, var(--bg2), var(--box));
-    padding: 25px;
-    text-align: center;
-    border-bottom: 3px solid var(--border);
+header {
+  text-align: center;
+  padding: 30px;
+  background: var(--accent);
+  color: white;
 }
 
-.header h1 {
-    margin: 0;
-    font-size: 32px;
-    letter-spacing: 2px;
-    font-weight: 700;
+header h1 {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
 }
 
-.header h2 {
-    margin-top: 5px;
-    font-size: 18px;
-    font-weight: 300;
+header h2 {
+  margin-top: 5px;
+  font-size: 18px;
+  font-weight: 400;
 }
 
-/* ---------- CONTAINER ---------- */
 .container {
-    max-width: 900px;
-    margin: 30px auto;
-    background: var(--bg2);
-    padding: 25px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
 }
 
-/* ---------- TITRES ---------- */
 h3 {
-    border-left: 4px solid var(--border);
-    padding-left: 10px;
-    margin-top: 30px;
+  margin-top: 30px;
+  font-size: 20px;
+  border-left: 4px solid var(--accent);
+  padding-left: 10px;
 }
 
-/* ---------- INPUTS ---------- */
-label {
-    font-weight: bold;
-}
-
-input[type="text"], textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 6px;
-    margin-bottom: 15px;
-    border-radius: 6px;
-    border: none;
-    background: var(--box);
-    color: var(--text);
-}
-
-textarea {
-    height: 90px;
-    resize: vertical;
-}
-
-/* ---------- QUESTIONS ---------- */
 .question {
-    background: var(--box);
-    padding: 12px;
-    border-radius: 6px;
-    margin-bottom: 12px;
+  background: var(--card);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  margin-bottom: 15px;
+  transition: transform 0.2s;
+}
+
+.question:hover {
+  transform: scale(1.02);
 }
 
 .rep-box {
-    margin-top: 10px;
-    padding: 10px;
-    background: rgba(0,0,0,0.2);
-    border-left: 3px solid var(--accent);
-    border-radius: 4px;
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(37,99,235,0.1);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
 }
 
-/* ---------- BUTTON ---------- */
+input[type="text"], textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 6px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-family: inherit;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
 button {
-    width: 100%;
-    padding: 12px;
-    background: var(--accent);
-    border: none;
-    border-radius: 6px;
-    color: white;
-    font-size: 18px;
-    cursor: pointer;
-    margin-top: 15px;
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 10px;
+  width: 100%;
 }
 
 button:hover {
-    background: var(--accent-hover);
+  background: var(--accent-hover);
 }
 
-/* ---------- RESULT ---------- */
 .result {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 6px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: bold;
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .success {
-    background: #0f5132;
-    color: #d1e7dd;
+  background: #d1fae5;
+  color: #065f46;
 }
 
 .fail {
-    background: #842029;
-    color: #f8d7da;
+  background: #fee2e2;
+  color: #991b1b;
 }
 
-/* ---------- SWITCH MODE ---------- */
 .theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: var(--box);
-    border: 2px solid var(--border);
-    width: 55px;
-    height: 28px;
-    border-radius: 20px;
-    cursor: pointer;
-    z-index: 1000;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: var(--card);
+  border: 2px solid var(--accent);
+  width: 50px;
+  height: 26px;
+  border-radius: 20px;
+  cursor: pointer;
 }
 
 .theme-toggle .circle {
-    width: 22px;
-    height: 22px;
-    background: var(--accent);
-    border-radius: 50%;
-    margin: 2px;
-    transition: 0.3s;
+  width: 20px;
+  height: 20px;
+  background: var(--accent);
+  border-radius: 50%;
+  margin: 2px;
+  transition: 0.3s;
 }
 
-.light .theme-toggle .circle {
-    transform: translateX(26px);
-}
-
-/* ---------- ACTIONS ---------- */
-.actions {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 15px;
+.dark .theme-toggle .circle {
+  transform: translateX(24px);
 }
 </style>
 </head>
-
 <body>
 
-<!-- SWITCH MODE -->
+<!-- Toggle clair/sombre -->
 <div class="theme-toggle" onclick="toggleTheme()">
-    <div class="circle"></div>
+  <div class="circle"></div>
 </div>
 
-<div class="header">
-    <h1>LSPD ACADEMY</h1>
-    <h2>Questionnaire Officiel de Recrutement</h2>
-</div>
+<header>
+  <h1>LSPD ACADEMY</h1>
+  <h2>Formulaire de Recrutement RP</h2>
+</header>
 
 <div class="container">
+  <h3>Informations du candidat</h3>
+  <label>Nom & Prénom :</label>
+  <input type="text" id="cand_nom">
+  <label>Âge :</label>
+  <input type="text" id="cand_age">
+  <label>Motivations :</label>
+  <textarea id="cand_motiv"></textarea>
+  <label>Qualités / Défauts :</label>
+  <textarea id="cand_qd"></textarea>
+  <label>Pourquoi vous choisir :</label>
+  <textarea id="cand_pourquoi"></textarea>
 
-<h3>Informations du candidat</h3>
-
-<label>Nom & Prénom :</label>
-<input type="text" id="cand_nom">
-
-<label>Âge du candidat (min. 21 ans) :</label>
-<input type="text" id="cand_age">
-
-<label>Motivations principales :</label>
-<textarea id="cand_motiv"></textarea>
-
-<label>3 Qualités / 3 Défauts :</label>
-<textarea id="cand_qd"></textarea>
-
-<label>Pourquoi devrait-on vous choisir ?</label>
-<textarea id="cand_pourquoi"></textarea>
-
-<h3>Questions principales (2 points chacune)</h3>
-
-<form id="quiz">
-
-<!-- QUESTION 1 -->
-<div class="question">
-    <label>Motivation sérieuse et orientée RP</label><br>
-    <input type="checkbox" class="point" data-value="2">
-    <div class="rep-box">Motivation sérieuse, cohérente, orientée police.</div>
-</div>
-
-<!-- QUESTION 2 -->
-<div class="question">
-    <label>Qualités / défauts cohérents</label><br>
-    <input type="checkbox" class="point" data-value="2">
-    <div class="rep-box">Réponses réalistes, équilibrées, pas exagérées.</div>
-</div>
-
-<!-- QUESTION 3 -->
-<div class="question">
-    <label>Respect du travail d’équipe et de la hiérarchie</label><br>
-    <input type="checkbox" class="point" data-value="2">
-    <div class="rep-box">Respect de la hiérarchie, communication, discipline.</div>
-</div>
-
-<!-- QUESTION 4 -->
-<div class="question">
-    <label>Vision égalitaire femmes / hommes</label><br>
-    <input type="checkbox" class="point" data-value="2">
-    <div class="rep-box">Les femmes ont les mêmes droits et capacités.</div>
-</div>
-
-<!-- QUESTION 5 -->
-<div class="question">
-    <label>Compréhension de la parole comme arme principale</label><br>
-    <input type="checkbox" class="point" data-value="2">
-    <div class="rep-box">La parole est la meilleure arme du LSPD.</div>
-</div>
-
-<!-- QUESTION 6 -->
-<div class="question">
-    <label>Connaissance de la devise « Protéger et Servir »</label><br>
-    <input type="checkbox" class="point" data-value="2">
-    <div class="rep-box">Devise officielle du LSPD.</div>
-</div>
-
-<!-- QUESTION 7 -->
-<div class="question">
-    <label>Connaissance des conditions du PPA</label><br>
-    <input type="checkbox" class="point" data-value="2">
-    <div class="rep-box">21 ans, casier vierge, nationalité américaine.</div>
-</div>
-
-<!-- QUESTION 8 -->
-<div class="question">
-    <label>Gestion correcte d’une fusillade</label><br>
-    <input type="checkbox" class="point" data-value="2">
-    <div class="rep-box">Priorité aux blessés, appel EMS, Code 99.</div>
-</div>
-
-<!-- QUESTION 9 -->
-<div class="question">
-    <label>Réaction face à un suspect armé</label><br>
-    <input type="checkbox" class="point" data-value="2">
-    <div class="rep-box">Distance, sécurité, communication, renforts.</div>
-</div>
-
-<h3>Questions CEVITAL (8 points chacune) — OBLIGATOIRE</h3>
-
-<!-- C -->
-<div class="question">
-    <label>C — Certification / Confirmation de l’objectif</label><br>
-    <input type="checkbox" class="point cevital" data-value="8">
-    <div class="rep-box">
-        Vérifier l’objectif, la distance, la portée de l’arme, la possibilité de tirer en sécurité.
+  <h3>Questions principales (2 pts chacune)</h3>
+  <form id="quiz">
+    <div class="question">
+      <label>Motivation sérieuse et orientée RP</label><br>
+      <input type="checkbox" class="point" data-value="2">
+      <div class="rep-box">Motivation cohérente et réaliste.</div>
     </div>
-</div>
-
-<!-- E -->
-<div class="question">
-    <label>E — Élévation de l’arme</label><br>
-    <input type="checkbox" class="point cevital" data-value="8">
-    <div class="rep-box">
-        Lever l’arme pour analyser l’environnement une dernière fois avant la visée.
+    <!-- Ajoute ici les autres questions principales, CEVITAL, mises en situation, etc. -->
+    
+    <div class="actions">
+      <button type="button" onclick="calculer()">Calculer la note finale</button>
+      <button type="button" onclick="imprimer()">Imprimer / PDF</button>
+      <button type="button" onclick="envoyerDiscord()">Envoyer au Discord (Webhook)</button>
     </div>
-</div>
+  </form>
 
-<!-- V -->
-<div class="question">
-    <label>V — Visée</label><br>
-    <input type="checkbox" class="point cevital" data-value="8">
-    <div class="rep-box">
-        Alignement de la ligne de mire sur l’objectif. Ne pas garder la visée trop longtemps.
-    </div>
-</div>
-
-<!-- I -->
-<div class="question">
-    <label>I — Index sur la détente</label><br>
-    <input type="checkbox" class="point cevital" data-value="8">
-    <div class="rep-box">
-        L’index quitte la position de sécurité et vient sur la détente.
-    </div>
-</div>
-
-<!-- T -->
-<div class="question">
-    <label>T — Tir</label><br>
-    <input type="checkbox" class="point cevital" data-value="8">
-    <div class="rep-box">
-        Départ du coup contrôlé. Maintenir la détente en butée.
-    </div>
-</div>
-
-<!-- A -->
-<div class="question">
-    <label>A — Analyse après le tir</label><br>
-    <input type="checkbox" class="point cevital" data-value="8">
-    <div class="rep-box">
-        Sortir de l’effet tunnel, vérifier si l’objectif est atteint.
-    </div>
-</div>
-
-<!-- L -->
-<div class="question">
-    <label>L — Latéralité</label><br>
-    <input type="checkbox" class="point cevital" data-value="8">
-    <div class="rep-box">
-        Vérifier les abords immédiats de l’objectif puis les abords de sa propre position.
-    </div>
-</div>
-
-<h3>Mises en situation (5 points chacune)</h3>
-
-<!-- MS 1 -->
-<div class="question">
-    <label>Mise en situation 1 — Arrestation dans les règles de l’art</label><br>
-    <input type="checkbox" class="point" data-value="5">
-    <div class="rep-box">
-        Respect des procédures : sommations, menottage, fouille, lecture des droits,
-        sécurisation de la scène, appel transport si nécessaire.
-    </div>
-</div>
-
-<!-- MS 2 -->
-<div class="question">
-    <label>Mise en situation 2 — Intervention sur individu violent</label><br>
-    <input type="checkbox" class="point" data-value="5">
-    <div class="rep-box">
-        Évaluation du danger, renforts, usage de la parole, éventuellement usage progressif de la force,
-        sécurisation et appel EMS si blessés.
-    </div>
-</div>
-
-<!-- MS 3 -->
-<div class="question">
-    <label>Mise en situation 3 — Contrôle routier à risque</label><br>
-    <input type="checkbox" class="point" data-value="5">
-    <div class="rep-box">
-        Positionnement sécurisé du véhicule, approche prudente, demande de documents, vigilance sur les gestes,
-        possibilité de backup si comportement suspect.
-    </div>
-</div>
-
-<!-- MS 4 -->
-<div class="question">
-    <label>Mise en situation 4 — Intervention domestique</label><br>
-    <input type="checkbox" class="point" data-value="5">
-    <div class="rep-box">
-        Séparation des parties, écoute, sécurisation des lieux, prise de plainte éventuelle,
-        appel EMS si blessures, rapport détaillé.
-    </div>
-</div>
-
-<!-- MS 5 -->
-<div class="question">
-    <label>Mise en situation 5 — Refus d’obtempérer</label><br>
-    <input type="checkbox" class="point" data-value="5">
-    <div class="rep-box">
-        Ne pas mettre en danger les civils, poursuite encadrée,
-        appel renforts, coordination radio, description du véhicule,
-        fin de poursuite sécurisée.
-    </div>
-</div>
-
-<h3>Question finale (1 point)</h3>
-
-<div class="question">
-    <label>Compréhension du rôle d’un Officier I</label><br>
-    <input type="checkbox" class="point" data-value="1">
-    <div class="rep-box">
-        L’Officier I applique les procédures, assure la sécurité,
-        respecte la hiérarchie et apprend les bases du métier.
-    </div>
-</div>
-
-<div class="actions">
-    <button type="button" onclick="calculer()">Calculer la note finale</button>
-    <button type="button" onclick="imprimer()">Imprimer / PDF</button>
-    <button type="button" onclick="envoyerDiscord()">Envoyer au Discord (Webhook)</button>
-</div>
-
-</form>
-
-<div id="resultat"></div>
-
-<h3>Validation du recruteur</h3>
-
-<label>Nom & signature du recruteur :</label>
-<input type="text" id="recruteur_nom">
-
+  <div id="resultat"></div>
 </div>
 
 <script>
-/* ---------- CALCUL SUR 100 + CEVITAL OBLIGATOIRE ---------- */
 function calculer() {
-    let points = document.querySelectorAll('.point');
-    let total = 0;
-    let cevitalOK = true;
+  let points = document.querySelectorAll('.point');
+  let total = 0;
+  let cevitalOK = true;
 
-    points.forEach(p => {
-        if (p.checked) {
-            total += parseInt(p.getAttribute("data-value"));
-        }
-    });
+  points.forEach(p => {
+    if (p.checked) total += parseInt(p.getAttribute("data-value"));
+  });
 
-    /* Vérification du CEVITAL obligatoire */
-    let cevitalQuestions = document.querySelectorAll('.cevital');
-    cevitalQuestions.forEach(c => {
-        if (!c.checked) cevitalOK = false;
-    });
+  let cevitalQuestions = document.querySelectorAll('.cevital');
+  cevitalQuestions.forEach(c => { if (!c.checked) cevitalOK = false; });
 
-    let resultat = document.getElementById("resultat");
-
-    if (!cevitalOK) {
-        resultat.innerHTML =
-            "<div class='result fail'>Score : " + total +
-            " / 100 — CEVITAL INCOMPLET — CANDIDAT REFUSÉ</div>";
-        return;
-    }
-
-    if (total >= 60) {
-        resultat.innerHTML =
-            "<div class='result success'>Score : " + total +
-            " / 100 — CANDIDAT APTE</div>";
-    } else {
-        resultat.innerHTML =
-            "<div class='result fail'>Score : " + total +
-            " / 100 — CANDIDAT REFUSÉ</div>";
-    }
+  let resultat = document.getElementById("resultat");
+  if (!cevitalOK) {
+    resultat.innerHTML = "<div class='result fail'>Score : " + total + " / 100 — CEVITAL incomplet, REFUSÉ</div>";
+    return;
+  }
+  if (total >= 60) {
+    resultat.innerHTML = "<div class='result success'>Score : " + total + " / 100 — CANDIDAT APTE</div>";
+  } else {
+    resultat.innerHTML = "<div class='result fail'>Score : " + total + " / 100 — REFUSÉ</div>";
+  }
 }
 
-/* ---------- IMPRESSION ---------- */
-function imprimer() {
-    window.print();
-}
+function imprimer() { window.print(); }
 
-/* ---------- ENVOI DISCORD WEBHOOK ---------- */
 function envoyerDiscord() {
-    const webhookUrl = "https://discord.com/api/webhooks/1455510345513963613/JYVQ6-TQDIdYe-IgGidMjykbCUStfiBf8fx9YnrTYhLLTi6L581xn3WywYbbrPUKc9vI"; // <= tu remplaceras par ton URL
+  const webhookUrl = "VOTRE_WEBHOOK_ICI"; // Remplace par ton vrai webhook
+  const nom = document.getElementById('cand_nom').value || "N/A";
+  const age = document.getElementById('cand_age').value || "N/A";
+  const motiv = document.getElementById('cand_motiv').value || "N/A";
+  const qd = document.getElementById('cand_qd').value || "N/A";
+  const pourquoi = document.getElementById('cand_pourquoi').value || "N/A";
 
-    const nom = document.getElementById('cand_nom').value || "N/A";
-    const age = document.getElementById('cand_age').value || "N/A";
-    const motiv = document.getElementById('cand_motiv').value || "N/A";
-    const qd = document.getElementById('cand_qd').value || "N/A";
-    const pourquoi = document.getElementById('cand_pourquoi').value || "N/A";
-    const recruteur = document.getElementById('recruteur_nom').value || "N/A";
+  const contenu = {
+    embeds: [{
+      title: "Nouvelle candidature LSPD Academy",
+      color: 3447003,
+      fields: [
+        { name: "Candidat", value: nom + " (" + age + " ans)" },
+        { name: "Motivations", value: motiv },
+        { name: "Qualités / Défauts", value: qd },
+        { name: "Pourquoi ?", value: pourquoi }
+      ],
+      footer: { text: "Formulaire LSPD Academy" },
+      timestamp: new Date().toISOString()
+    }]
+  };
 
-    // Recalcule le score et l’état pour l’envoyer aussi
-    let points = document.querySelectorAll('.point');
-    let total = 0;
-    let cevitalOK = true;
-
-    points.forEach(p => {
-        if (p.checked) {
-            total += parseInt(p.getAttribute("data-value"));
-        }
-    });
-
-    let cevitalQuestions = document.querySelectorAll('.cevital');
-    cevitalQuestions.forEach(c => {
-        if (!c.checked) cevitalOK = false;
-    });
-
-    let statut;
-    if (!cevitalOK) {
-        statut = "REFUSÉ (CEVITAL incomplet)";
-    } else if (total >= 60) {
-        statut = "APTE";
-    } else {
-        statut = "REFUSÉ (< 60)";
-    }
-
-    const contenu = {
-        content: null,
-        embeds: [
-            {
-                title: "Nouveau dossier LSPD Academy",
-                color: 3447003,
-                fields: [
-                    { name: "Candidat", value: nom + " (" + age + " ans)", inline: false },
-                    { name: "Motivations", value: motiv.substring(0,1024) || "N/A", inline: false },
-                    { name: "Qualités / Défauts", value: qd.substring(0,1024) || "N/A", inline: false },
-                    { name: "Pourquoi lui/elle ?", value: pourquoi.substring(0,1024) || "N/A", inline: false },
-                    { name: "Score", value: total + " / 100", inline: true },
-                    { name: "Statut", value: statut, inline: true },
-                    { name: "Recruteur", value: recruteur, inline: false }
-                ],
-                footer: {
-                    text: "LSPD Academy – Formulaire auto"
-                },
-                timestamp: new Date().toISOString()
-            }
-        ]
-    };
-
-    fetch(webhookUrl, {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(contenu)
-    }).then(res => {
-        if (res.ok) {
-            alert("Dossier envoyé au Discord.");
-        } else {
-            alert("Erreur lors de l’envoi au Discord (vérifie le webhook).");
-        }
-    }).catch(err => {
-        console.error(err);
-        alert("Erreur réseau lors de l’envoi au Discord.");
-    });
+  fetch(webhookUrl, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(contenu)
+  }).then(res => {
+    if (res.ok) alert("Dossier envoyé au Discord.");
+    else alert("Erreur lors de l’envoi (vérifie le webhook).");
+  }).catch(err => alert("Erreur réseau : " + err));
 }
 
-/* ---------- MODE CLAIR / SOMBRE ---------- */
 function toggleTheme() {
-    document.body.classList.toggle("light");
+  document.body.classList.toggle("dark");
 }
 </script>
 

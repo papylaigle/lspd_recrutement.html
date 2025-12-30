@@ -189,87 +189,22 @@ button:hover {
 
   <h3>Questions principales (2 pts chacune)</h3>
   <form id="quiz">
-    <div class="question">
-      <label>Motivation sérieuse et orientée RP</label><br>
-      <input type="checkbox" class="point" data-value="2">
-      <div class="rep-box">Motivation cohérente et réaliste.</div>
-    </div>
-    <!-- Ajoute ici les autres questions principales, CEVITAL, mises en situation, etc. -->
-    
-    <div class="actions">
-      <button type="button" onclick="calculer()">Calculer la note finale</button>
-      <button type="button" onclick="imprimer()">Imprimer / PDF</button>
-      <button type="button" onclick="envoyerDiscord()">Envoyer au Discord (Webhook)</button>
-    </div>
-  </form>
+    <!-- 9 questions principales -->
+    <div class="question"><label>Motivation sérieuse et orientée RP</label><br><input type="checkbox" class="point" data-value="2"><div class="rep-box">Motivation cohérente et réaliste.</div></div>
+    <div class="question"><label>Qualités / défauts cohérents</label><br><input type="checkbox" class="point" data-value="2"><div class="rep-box">Réponses réalistes, équilibrées.</div></div>
+    <div class="question"><label>Respect du travail d’équipe et de la hiérarchie</label><br><input type="checkbox" class="point" data-value="2"><div class="rep-box">Respect de la hiérarchie, discipline.</div></div>
+    <div class="question"><label>Vision égalitaire femmes / hommes</label><br><input type="checkbox" class="point" data-value="2"><div class="rep-box">Égalité respectée.</div></div>
+    <div class="question"><label>La parole comme arme principale</label><br><input type="checkbox" class="point" data-value="2"><div class="rep-box">Communication avant force.</div></div>
+    <div class="question"><label>Devise « Protéger et Servir »</label><br><input type="checkbox" class="point" data-value="2"><div class="rep-box">Devise officielle du LSPD.</div></div>
+    <div class="question"><label>Conditions du PPA</label><br><input type="checkbox" class="point" data-value="2"><div class="rep-box">21 ans, casier vierge.</div></div>
+    <div class="question"><label>Gestion correcte d’une fusillade</label><br><input type="checkbox" class="point" data-value="2"><div class="rep-box">Priorité aux blessés, Code 99.</div></div>
+    <div class="question"><label>Réaction face à un suspect armé</label><br><input type="checkbox" class="point" data-value="2"><div class="rep-box">Distance, renforts, communication.</div></div>
 
-  <div id="resultat"></div>
-</div>
-
-<script>
-function calculer() {
-  let points = document.querySelectorAll('.point');
-  let total = 0;
-  let cevitalOK = true;
-
-  points.forEach(p => {
-    if (p.checked) total += parseInt(p.getAttribute("data-value"));
-  });
-
-  let cevitalQuestions = document.querySelectorAll('.cevital');
-  cevitalQuestions.forEach(c => { if (!c.checked) cevitalOK = false; });
-
-  let resultat = document.getElementById("resultat");
-  if (!cevitalOK) {
-    resultat.innerHTML = "<div class='result fail'>Score : " + total + " / 100 — CEVITAL incomplet, REFUSÉ</div>";
-    return;
-  }
-  if (total >= 60) {
-    resultat.innerHTML = "<div class='result success'>Score : " + total + " / 100 — CANDIDAT APTE</div>";
-  } else {
-    resultat.innerHTML = "<div class='result fail'>Score : " + total + " / 100 — REFUSÉ</div>";
-  }
-}
-
-function imprimer() { window.print(); }
-
-function envoyerDiscord() {
-  const webhookUrl = "VOTRE_WEBHOOK_ICI"; // Remplace par ton vrai webhook
-  const nom = document.getElementById('cand_nom').value || "N/A";
-  const age = document.getElementById('cand_age').value || "N/A";
-  const motiv = document.getElementById('cand_motiv').value || "N/A";
-  const qd = document.getElementById('cand_qd').value || "N/A";
-  const pourquoi = document.getElementById('cand_pourquoi').value || "N/A";
-
-  const contenu = {
-    embeds: [{
-      title: "Nouvelle candidature LSPD Academy",
-      color: 3447003,
-      fields: [
-        { name: "Candidat", value: nom + " (" + age + " ans)" },
-        { name: "Motivations", value: motiv },
-        { name: "Qualités / Défauts", value: qd },
-        { name: "Pourquoi ?", value: pourquoi }
-      ],
-      footer: { text: "Formulaire LSPD Academy" },
-      timestamp: new Date().toISOString()
-    }]
-  };
-
-  fetch(webhookUrl, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(contenu)
-  }).then(res => {
-    if (res.ok) alert("Dossier envoyé au Discord.");
-    else alert("Erreur lors de l’envoi (vérifie le webhook).");
-  }).catch(err => alert("Erreur réseau : " + err));
-}
-
-function toggleTheme() {
-  document.body.classList.toggle("dark");
-}
-</script>
-
-</body>
-</html>
+    <h3>Questions CEVITAL (8 pts chacune, obligatoires)</h3>
+    <div class="question"><label>C — Certification</label><br><input type="checkbox" class="point cevital" data-value="8"><div class="rep-box">Vérifier objectif et sécurité.</div></div>
+    <div class="question"><label>E — Élévation</label><br><input type="checkbox" class="point cevital" data-value="8"><div class="rep-box">Lever l’arme, analyser.</div></div>
+    <div class="question"><label>V — Visée</label><br><input type="checkbox" class="point cevital" data-value="8"><div class="rep-box">Alignement rapide.</div></div>
+    <div class="question"><label>I — Index sur la détente</label><br><input type="checkbox" class="point cevital" data-value="8"><div class="rep-box">Index sur la détente.</div></div>
+    <div class="question"><label>T — Tir</label><br><input type="checkbox" class="point cevital" data-value="8"><div class="rep-box">Départ du coup contrôlé.</div></div>
+    <div class="question"><label>A — Analyse</label><br><input type="checkbox" class="point cevital" data-value="8"><div class="rep-box">Vérifier résultat.</div></div>
+    <div class="question"><label>L — Latéralité</label><br><input type="checkbox" class="point cevital" data-value="8"><div
